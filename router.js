@@ -5,12 +5,14 @@
  * Time: 16:41
  * To change this template use File | Settings | File Templates.
  */
-function route(handle, pathname) {
-    console.log("About to route a request for " +  pathname);
-    if (typeof handle[pathname] === 'function') {
-        handle[pathname]();
+function route(handle, pathName) {
+    "use strict";
+    console.log("About to route a request for " + pathName);
+    if (typeof handle[pathName] === 'function') {
+        return handle[pathName]();
     } else {
-        console.log("No request handler found for " + pathname);
+        console.log("No request handler found for " + pathName);
+        return "404 Not found";
     }
 }
 exports.route = route;
