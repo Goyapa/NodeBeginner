@@ -11,10 +11,10 @@ var url = require("url");
 function start(route, handle) {
     "use strict";
     function onRequest(request, response) {
-        var pathName = url.parse(request.url).pathname;
-        console.log("Request for " + pathName + " received.");
+        var pathname = url.parse(request.url).pathname;
+        console.log("Request for " + pathname + " received.");
 
-        route(handle, pathName, response);
+        route(handle, pathname, response);
     }
 
     http.createServer(onRequest).listen(8888);
